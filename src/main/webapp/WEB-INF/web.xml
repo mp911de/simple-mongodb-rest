@@ -26,7 +26,6 @@
         </init-param>
     </servlet>
 
-
     <servlet-mapping>
         <servlet-name>Resteasy</servlet-name>
         <url-pattern>/*</url-pattern>
