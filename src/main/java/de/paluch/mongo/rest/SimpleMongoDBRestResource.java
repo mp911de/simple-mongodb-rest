@@ -189,7 +189,9 @@ public class SimpleMongoDBRestResource {
             String result = null;
             if (cursor.hasNext()) {
                 DBObject update = (DBObject) JSON.parse(body);
-                collection.update(bdb, update);
+                DBObject theObject = collection.findOne(bdb);
+                theObject.putAll(update);
+                collection.update(bdb, theObject);
                 cursor.close();
                 cursor = collection.find(bdb);
                 result = cursor.next().toString();
